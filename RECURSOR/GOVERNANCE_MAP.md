@@ -6,6 +6,7 @@ The cold-read entry surface for anyone (agent or human) trying to find the autho
 
 | You're asking... | Read |
 |---|---|
+| What is this place *for*? Where is it going? | `../TELOS/TELOS.md` (the vision — read before deciding what to build) |
 | What is this place? What are the rules? | `../CANON/CANON_PRIME.md` (then `../CANON/INDEX.md` for the full shelf) |
 | What does this word mean? Is "Meep" an insult? | `../CANON/GLOSSARY.md` (no — office, not kind; read it) |
 | Who's in charge of what? | `../CANON/ORG_MAP.md` |
@@ -22,6 +23,7 @@ The cold-read entry surface for anyone (agent or human) trying to find the autho
 
 ## The shape of authority
 
+- **TELOS/** is the north star — the *why*. It guides every contribution but does not govern; where it and CANON seem to conflict, CANON wins operationally.
 - **CANON/** is law. Amended only by ratified gold.
 - **RECURSOR/** is method — procedures that implement the law. Amended by gold too, but expected to evolve faster.
 - **PULSE/** is motion — the ladder's working directories. Bronzes/silvers/golds are filings, not authority.
