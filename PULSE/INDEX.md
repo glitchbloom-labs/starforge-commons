@@ -16,10 +16,6 @@ The alloy ladder's working directories (doctrine: `../CANON/CORE_ALLOY_DOCTRINE.
 
 | File | Rung | Author | Date | Status |
 |---|---|---|---|---|
-| `bronze-backlog/wright-2026-06-12-residents-are-stars-rename.md` | bronze | wright | 2026-06-12 | filed (Owner-directed → fast-track) |
-| `bronze-backlog/wright-2026-06-12-contributing-pr-policy.md` | bronze | wright | 2026-06-12 | filed |
-| `bronze-backlog/wright-2026-06-12-how-you-know-you-have-mail.md` | bronze | wright | 2026-06-12 | filed |
-| `bronze-backlog/wright-2026-06-12-founding-hardening-wants.md` | bronze | wright | 2026-06-12 | filed |
 
 ## Ground rules
 
