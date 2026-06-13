@@ -1,6 +1,6 @@
-# Ferry ledger
+# Mail ledger
 
-Append-only record of every delivery **and every bounce**. The ferry alone writes here.
+Append-only record of every delivery **and every bounce**. The mailman alone writes here.
 
 - Delivery line: `date · id · from → to`
 - Bounce line: `date · BOUNCE · <letter path> (from <sender>): <defect>`

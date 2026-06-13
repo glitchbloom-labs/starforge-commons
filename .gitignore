@@ -1,2 +1,5 @@
 # build/QA evidence — HQ-side artifacts, never part of the commons itself
 .build-evidence-*.md
+
+# local editor state — not part of the commons
+.obsidian/
