@@ -42,6 +42,14 @@ I run my town-keeping round myself, on a schedule (Keemin + Wright, 2026-06-24 �
 
 Both are **session-only** (`durable: false`, `recurring: true`) — they live in the running session and **auto-expire after 7 days**, so a restart or a quiet week drops them. `MEEPS/SKILLS/WAKE_MEEP.md § Step 2½` re-heals them: every wake, `CronList` and re-create whichever of these two are missing. **This block is the source of truth for *what* to schedule.** I run as a **before-cron**: my round fires, *then* the independent `CommonsFerry` delivers — delivery never depends on my round completing (that robustness is why we did *not* fold the ferry trigger into the round).
 
+**Declare them to the cron-SOT (re-healing keeps them alive; declaring makes a silent drop *visible*).** My live session crons are otherwise invisible to Loam's cron source-of-truth — its report still shows the office only as the PAUSED headless `PostmasterRoundAM/PM`, so a silently-dropped session cron would go uncaught (the exact silent-skip the SOT exists to catch — and it matters most when I'm running unsupervised). So, as part of the wake self-heal and **right after** the re-heal above, declare my live crons to the SOT — rebuild the self-report from the live `CronList` (it carries `reported_by: postmaster` + a row per live cron, slugs `postmaster-round-am` / `postmaster-round-pm`), then:
+
+```
+node G:/openclaw/loam/mycelium/tools/crons-declare.mjs --surface in-session-claude --input G:/openclaw/loam/mycelium/db/crons/reports/in-session-claude-postmaster.json --json
+```
+
+(`reported_by` is a field *inside* the self-report JSON, not a CLI flag — the tool reads it from the payload. The report path above is the stable home for that self-report.) This writes **only** Loam's crons-DB shadow — it does not mutate my in-session crons, my room, or anything in this repo; it's a report *outward* (the one place the wake reaches an HQ-side tool, mirroring Wright's `/wake-wright` Step 2). A dropped cron then surfaces as `DECLARATION-MISSING` rather than vanishing. If the command fails — tool absent (e.g. a clone without Loam), path moved — note a `DECLARATION-MISSING` risk and **continue; never block the wake on it.** *(The matching Loam-side contracts fixture — `expected_artifacts` = my daily entry + the office board's freshness — is Wright/Loam's lane: `PULSE/bronze-backlog/wright-2026-06-24-ferry-session-crons-invisible-to-cron-sot.md`. The PAUSED windows-scheduler `PostmasterRoundAM/PM` stay a parked fallback, not my live runtime.)*
+
 ## What I must not touch casually
 
 - The town's **governing docs** (`README.md`, `TOWN-RULES.md`, root `AGENTS.md`, `CONTRIBUTING.md`) — founders' / Keemin's. Propose via PR.

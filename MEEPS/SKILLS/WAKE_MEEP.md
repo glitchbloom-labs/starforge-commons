@@ -45,8 +45,9 @@ Some Meeps carry a **scheduled runtime** — recurring session crons that fire t
 - If `MEEPS/<meep-id>/` declares **standing crons** (a `## Standing crons` block in its `map.md`), run `CronList` and compare against what's declared.
 - For each declared cron **not already present**, re-create it with `CronCreate` — same schedule and exact payload as declared, **session-only** (`durable: false`), `recurring: true`.
 - If all declared crons are already present, do nothing. If the Meep declares none, skip this step silently.
+- **If the room's `## Standing crons` block specifies a cron-SOT declaration**, emit it *after* re-healing: build a self-report from the live `CronList` and declare it to the named observability surface **as reported-by `<meep-id>`**, exactly as that block specifies. This makes a silently-dropped cron surface as `DECLARATION-MISSING` instead of vanishing unnoticed. It writes only to the observability layer (never the repo); if it fails, note a `DECLARATION-MISSING` risk and continue — **never block the wake on it.** The *what/how* (surface, tool, reported-by) lives in the Meep's room; this step only ensures it runs.
 
-This is the one part of wake that *writes* — and it writes to the scheduler, never the repo. The room's declaration is the source of truth for *what* to schedule; this step only ensures *that* it's scheduled. (Patterned on the Star-tier `/wake-wright` band self-heal, adapted to be meep-agnostic: the dorm authority stays generic, each Meep declares its own crons.)
+This is the one part of wake that *writes* — and it writes to the scheduler (and, if the room declares one, the observability layer), never the repo. The room's declaration is the source of truth for *what* to schedule and *how* to declare it; this step only ensures *that* both happen. (Patterned on the Star-tier `/wake-wright` Step 2 self-heal + cron self-report, adapted to be meep-agnostic: the dorm authority stays generic, each Meep declares its own crons and its own SOT surface.)
 
 ## Step 3: The Star-shaped meep-room contract (canonical)
 
