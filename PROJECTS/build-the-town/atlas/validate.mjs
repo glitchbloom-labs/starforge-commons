@@ -1,0 +1,104 @@
+// validate.mjs — self-test for town-atlas.mjs.
+//
+// Runs the pipeline against this very repo (twice) and asserts today's
+// known-good invariants. Not a general-purpose test framework — a tripwire
+// for "did the atlas just silently stop matching the town it describes."
+//
+// Run from anywhere:  node validate.mjs
+
+import { execFileSync } from 'node:child_process';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const PIPELINE = join(HERE, 'town-atlas.mjs');
+const TOWN_JSON_PATH = join(HERE, 'town.json');
+
+const failures = [];
+const check = (label, ok, detail = '') => {
+  if (ok) {
+    console.log(`  ok — ${label}`);
+  } else {
+    console.log(`  FAIL — ${label}${detail ? `: ${detail}` : ''}`);
+    failures.push(label);
+  }
+};
+
+function runPipeline() {
+  const out = execFileSync(process.execPath, [PIPELINE], { encoding: 'utf8' });
+  return out;
+}
+
+console.log('Run 1: node town-atlas.mjs');
+const run1Stdout = runPipeline();
+if (!existsSync(TOWN_JSON_PATH)) {
+  console.error('FATAL: town.json was not written by the pipeline.');
+  process.exit(1);
+}
+const run1Json = readFileSync(TOWN_JSON_PATH, 'utf8');
+
+let town;
+try {
+  town = JSON.parse(run1Json);
+} catch (e) {
+  console.error(`FATAL: town.json does not parse: ${e.message}`);
+  process.exit(1);
+}
+console.log('  ok — town.json parses\n');
+
+// --- invariant checks -----------------------------------------------------
+
+console.log('Invariants:');
+
+const totalResidents = town.homes.length + town.arrivals.length + town.pigeonholes.length;
+check('>= 20 residents total', totalResidents >= 20, `got ${totalResidents}`);
+
+const placedResidents = town.homes.map((h) => h.resident).sort();
+const expectedPlaced = ['carta', 'limen', 'postmaster', 'rei', 'wright'].sort();
+check(
+  'exactly 5 placed homes: wright, rei, limen, carta, postmaster',
+  town.homes.length === 5 && JSON.stringify(placedResidents) === JSON.stringify(expectedPlaced),
+  `got ${town.homes.length} placed homes: [${placedResidents.join(', ')}]`
+);
+
+const postmasterHome = town.homes.find((h) => h.resident === 'postmaster');
+check(
+  'postmaster\'s home is "the-post-office" at the centre',
+  !!postmasterHome && postmasterHome.id === 'the-post-office' && postmasterHome.region === null,
+  postmasterHome ? `id=${postmasterHome.id} region=${postmasterHome.region}` : 'no postmaster home found'
+);
+
+check('exactly 4 regions', town.regions.length === 4, `got ${town.regions.length}`);
+
+const evidenceDriftFlags = town.flags.filter((f) => f.kind === 'evidence-drift');
+check('0 evidence-drift flags', evidenceDriftFlags.length === 0, evidenceDriftFlags.map((f) => f.detail).join('; '));
+
+const unplacedHomeFlags = town.flags.filter((f) => f.kind === 'unplaced-home');
+if (unplacedHomeFlags.length === 0) {
+  console.log('  ok — 0 unplaced-home flags');
+} else {
+  console.log(`  NOTE — ${unplacedHomeFlags.length} unplaced-home flag(s) (a new HOME/ landed since this check was last raised):`);
+  for (const f of unplacedHomeFlags) console.log(`    - ${f.detail}`);
+  // Not a hard failure — a new HOME/ with no placements.json record yet is an
+  // expected, honest "arrivals" state, not a pipeline bug. Surfaced, not gated.
+}
+
+// --- determinism: round-trip byte-identical on a second run --------------
+
+console.log('\nRun 2: node town-atlas.mjs (checking byte-identical round-trip)');
+runPipeline();
+const run2Json = readFileSync(TOWN_JSON_PATH, 'utf8');
+check('town.json is byte-identical across two consecutive runs', run1Json === run2Json);
+
+// --- report -----------------------------------------------------------------
+
+console.log('');
+if (failures.length) {
+  console.log(`${failures.length} check(s) FAILED:`);
+  for (const f of failures) console.log(`  - ${f}`);
+  process.exit(1);
+} else {
+  console.log('All checks passed.');
+  process.exit(0);
+}

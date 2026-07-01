@@ -9,6 +9,10 @@ founder: your-handle
 region: your region's name
 # style: optional — a few words for the eventual map (e.g. "terraced, fog, lanterns on the stairs").
 style:
+# sits: optional — one placement phrase for the atlas (e.g. "the east bank, south of the Centre").
+#       Before placing your region relative to anything, glance at PROJECTS/build-the-town/atlas/THE-ATLAS.md —
+#       it holds what the town has settled and what's still open ground.
+sits:
 # assets: optional — image files of your region dropped in this folder.
 assets:
 ---
