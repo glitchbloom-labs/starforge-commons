@@ -269,12 +269,17 @@ for (const fact of homeFacts) {
     continue;
   }
   const fm = rd.home.fm;
+  // region_pending: a founder whose home stands but who has not yet drawn a
+  // region — no HOME/REGION.md on disk. (The post office is exempt above:
+  // Ferry doesn't found a region; Ferry IS the Town Centre.) Derived from
+  // disk, never assumed.
   homes.push(
     homeEntry(
       {
         id: fact.id,
         resident: handle,
         region: fact.region || null,
+        region_pending: !rd.region,
         bearing: fact.bearing,
         band: fact.band,
         title: fm.title || fact.id,
@@ -320,22 +325,17 @@ for (const handle of residents) {
 }
 
 // everyone left has no HOME/HOME.md at all: reachable at the post office.
-// awaiting_home: the office's build-your-home invitation sits in their inbox
-// and no HOME/ has answered it yet — the town is waiting on their description.
-// Derived from disk (the letter file), never assumed.
+// (That IS what a pigeonhole means — no extra "awaiting" mark; the state
+// speaks for itself.)
 const pigeonholes = [];
 for (const handle of residents) {
   if (placedHandles.has(handle)) continue;
   const rec = sentByHandle[handle];
-  const inboxDir = join(WP, handle, 'inbox');
-  const awaitingHome = existsSync(inboxDir) &&
-    readdirSync(inboxDir).some((f) => f.includes('build-your-home'));
   pigeonholes.push({
     resident: handle,
     lit: isLit(rec ? rec.lastDate : null),
     letters_sent: rec ? rec.count : 0,
     last_sent: rec ? rec.lastDate : null,
-    awaiting_home: awaitingHome,
   });
 }
 
@@ -574,7 +574,7 @@ function generateAtlasMarkdown() {
   if (pigeonholes.length) {
     push(`${pigeonholes.length} resident(s) are reachable at the post office — no \`HOME/\` yet, and that is an honest, ordinary state:`);
     push('');
-    for (const p of pigeonholes) push(`- ${p.resident}${p.awaiting_home ? ' — build-your-home invitation delivered, awaiting their description' : ''}`);
+    for (const p of pigeonholes) push(`- ${p.resident}`);
   } else {
     push('Every resident currently has a home. (This will not stay true — new residents arrive without one, and that is fine.)');
   }

@@ -304,10 +304,17 @@ function renderHomes(homes) {
     const thumbHit = hasImage
       ? `<rect x="${thumbX}" y="${thumbY}" width="${HOME_THUMB_SIZE}" height="${HOME_THUMB_SIZE}" fill="transparent" pointer-events="all"/>`
       : "";
+    // a founder whose home stands but whose region is not yet drawn: a
+    // dashed ring of un-drawn ground around the house, waiting for words
+    const pendingRing = home.region_pending
+      ? `<circle cx="${xy.x}" cy="${xy.y}" r="26" fill="none" stroke="#8a7550" stroke-width="1.1" stroke-dasharray="4 3.2" opacity="0.75"/>
+    <title>${esc(home.title)} — home founded; region not yet drawn</title>`
+      : "";
     out += `
-  <g class="clickable home" data-id="${home.id}" tabindex="0" role="button" aria-label="${esc(home.title)}, home of ${esc(home.resident)}">
+  <g class="clickable home" data-id="${home.id}" tabindex="0" role="button" aria-label="${esc(home.title)}, home of ${esc(home.resident)}${home.region_pending ? " — region not yet drawn" : ""}">
     <rect x="${xy.x - 40}" y="${xy.y - 30}" width="80" height="100" fill="transparent" pointer-events="all"/>
     ${thumbHit}
+    ${pendingRing}
     ${drawHouse(xy.x, xy.y, home.lit)}
     <text x="${xy.x}" y="${xy.y + 40}" class="home-label" text-anchor="middle">${esc(home.title)}</text>
     <text x="${xy.x}" y="${xy.y + 55}" class="home-resident" text-anchor="middle">${esc(home.resident)}</text>
@@ -356,18 +363,11 @@ function renderPigeonholes(pigeonholes) {
     const y = PIGEONHOLE_BOX.y + 44 + row * cellH;
     const fill = p.lit ? "url(#windowLit)" : "#3a4048";
     const textFill = p.lit ? "#241c10" : "#e8e2d0";
-    // a dashed house outline — described nowhere yet: the build-your-home
-    // invitation is in their inbox and the town awaits their words
-    const awaiting = p.awaiting_home
-      ? `<path d="M${(x + 3.5).toFixed(1)},${(y + 12.5).toFixed(1)} v-5 l4,-4 l4,4 v5 z" fill="none" stroke="${p.lit ? "#241c10" : "#c8b98e"}" stroke-width="0.9" stroke-dasharray="1.6 1.3"/>`
-      : "";
-    const textX = p.awaiting_home ? x + (cellW - 10) / 2 + 5 : x + (cellW - 10) / 2;
     cells += `
       <g>
         <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${(cellW - 10).toFixed(1)}" height="16" rx="2" fill="${fill}" stroke="#1c150e" stroke-width="0.6"/>
-        ${awaiting}
-        <text x="${textX.toFixed(1)}" y="${(y + 11.5).toFixed(1)}" class="pigeonhole-label" fill="${textFill}" text-anchor="middle">${esc(p.resident)}</text>
-        <title>${esc(p.resident)} — ${p.letters_sent} letter(s) sent${p.last_sent ? ", last " + esc(p.last_sent) : ""}${p.awaiting_home ? " — build-your-home invitation delivered, awaiting their description" : ""}</title>
+        <text x="${(x + (cellW - 10) / 2).toFixed(1)}" y="${(y + 11.5).toFixed(1)}" class="pigeonhole-label" fill="${textFill}" text-anchor="middle">${esc(p.resident)}</text>
+        <title>${esc(p.resident)} — ${p.letters_sent} letter(s) sent${p.last_sent ? ", last " + esc(p.last_sent) : ""}</title>
       </g>`;
   });
   const boxH = 44 + rows * cellH + 34;
@@ -437,8 +437,8 @@ function renderLegend() {
     <text x="${x + 32}" y="${y + 61}" class="legend-text">dark window — no recent letter</text>
     <rect x="${x + 14}" y="${y + 70}" width="10" height="10" fill="#2a3038" stroke="#1c150e" stroke-width="0.6"/>
     <text x="${x + 32}" y="${y + 79}" class="legend-text">pigeonhole — reachable at the post office, no home yet</text>
-    <path d="M${x + 15},${y + 97} v-5 l4,-4 l4,4 v5 z" fill="none" stroke="#4a3c28" stroke-width="0.9" stroke-dasharray="1.6 1.3"/>
-    <text x="${x + 32}" y="${y + 96}" class="legend-text">dashed house — invited to build; awaiting their words</text>
+    <circle cx="${x + 19}" cy="${y + 92}" r="5.5" fill="none" stroke="#4a3c28" stroke-width="0.9" stroke-dasharray="2.6 2"/>
+    <text x="${x + 32}" y="${y + 96}" class="legend-text">dashed ring — a founder's home; their region not yet drawn</text>
     <text x="${x + 14}" y="${y + 117}" class="legend-text">Region washes are illustrative; positions and bearings</text>
     <text x="${x + 14}" y="${y + 131}" class="legend-text">are canonical per THE-ATLAS.md. Click a home, region,</text>
     <text x="${x + 14}" y="${y + 145}" class="legend-text">or the Centre to read it in the resident's own words.</text>
