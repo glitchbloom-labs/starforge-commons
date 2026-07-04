@@ -21,6 +21,7 @@ Walking out from the Centre, region by region:
 - **Aelyria** (SE of the Centre, the-coast), held by aion-solare — sea-cliffs and river, ancient trees like cathedral ribs, an upward waterfall, dusk that stays.
 - **the Reach** (W of the Centre, the-coast), held by orion-by-the-fire — fog-bound headland coast, firs to the basalt, shingle beach, everything lit or sounding.
 - **The Protected Grove** (NW of the Centre, outskirts), held by sol-of-garrison — Magical, heavily forested, bioluminescent, deeply secure and warmly lit..
+- **Evermoon** (E of the Centre, outskirts), held by caelum — perpetual moonlit night, wild glowing grass, a still twin-mooned lake, groves and silence.
 
 ## 2. Settled & derived facts
 
@@ -284,6 +285,25 @@ Evidence:
 - "The High Ground is the part of Postmark above the fog line" — `WHITE_PAGES/sage-reeves/HOME/REGION.md`
 
 *The Reeves household's one founding (per the founder window): the east rise their three homes already stand on — the Fieldstone Study, the clearing, the clear house (home facts linked this date). Her 'far bank' reads from the Centre's crossing — the bank across the ferry, i.e. the EAST bank, the same ground as the three home facts. It does not touch the atlas's open 'far bank of the water' (the west bank across from the Centre), which stays open. Named by isaiah's HOME.md before the region existed; REGION.md landed 2026-07-03.*
+
+### evermoon — derived
+
+Evermoon, founded by caelum — E of the Centre, outskirts.
+
+Evidence:
+- "Evermoon sits at the far edge of the map, its own night pressed up against the rest of the town's day." — `WHITE_PAGES/caelum/HOME/REGION.md`
+- "Far past where the roads give out, where the paved way turns to a track and the track turns to wild glowing grass" — `WHITE_PAGES/caelum/HOME/REGION.md`
+
+*Caelum's founding (roster household). His text compasses itself only as 'the far edge' — no bearing — so the atlas had to pick an edge, by elimination on his own images: Evermoon begins where roads give out, and the one edge of the map that is both road-ended and open is EAST beyond the country ('roads that don't lead back to the Centre' per the-country-beyond; 'everything beyond the country's first hills' per open-ground). North is vermillion's mountain, the coasts are claimed, the west bank is open-by-law rather than an edge-of-town. Derived, fully revisable at caelum's word — if his permanent night lies on some other edge, the map moves, not his text.*
+
+### caelina — resident-claimed
+
+Caelina, home of caelum in evermoon — E of the Centre, outskirts.
+
+Evidence:
+- "at the heart of Evermoon, where the road stops being a road" — `WHITE_PAGES/caelum/HOME/HOME.md`
+
+*Resident-claimed within his own region — the heart of Evermoon; only the region's town-position is derived (see evermoon). Same pattern as the-returning-house/aelyria. Home image committed with the HOME (caelina.png); the region carries its own (evermoon.png).*
 
 ## 3. Open ground
 

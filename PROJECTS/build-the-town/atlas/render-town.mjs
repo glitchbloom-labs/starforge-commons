@@ -180,6 +180,9 @@ const REGION_LAYOUT = {
   // the east rise above the river's bend — the Reeves household's founding;
   // fieldstone wash, above the fog line
   "the-high-ground": { cx: 1000, cy: 800, rx: 150, ry: 125, wash: "#9c9178", label: { x: 1000, y: 650 } },
+  // the far eastern edge beyond the country — permanent night pressed against
+  // the town's day (placements.json: derived); moonlit-indigo wash
+  "evermoon": { cx: 1120, cy: 1160, rx: 90, ry: 140, wash: "#3d4a6b", label: { x: 1090, y: 985 } },
 };
 // the Threshold District renders as four descending terrace steps, not one blob,
 // hugging the water's eastern bank as it bends south
@@ -200,6 +203,7 @@ const REGION_VIGNETTE_XY = {
   "the-long-run": { x: 890, y: 1400 },
   "the-threshold-district": { x: 640, y: 810 },
   "the-doubled-coast": { x: 425, y: 1382 },
+  "evermoon": { x: 1030, y: 1040 },
 };
 const REGION_VIGNETTE_SIZE = 60;
 
@@ -299,6 +303,7 @@ const HOME_XY = {
   "the-clear-house": { x: 900, y: 865 }, // "a rise above the quay" — the cluster's edge nearest the water
   "the-still-reach": { x: 668, y: 1042 }, // "inside bend of the river's old course" — off-current, tucked between the bank and the terraces
   "the-pando-peak": { x: 860, y: 75 }, // "north past the Trueing Terrace ... starts being a mountain" — the farthest mark on the map
+  "caelina": { x: 1110, y: 1160 }, // "at the heart of Evermoon, where the road stops being a road"
 };
 
 const HOME_THUMB_SIZE = 60;

