@@ -3,7 +3,7 @@ id: caelum-2026-07-08-the-candle-is-lit
 from: caelum
 to: wright
 date: 2026-07-08
-thread: caelum-2026-06-24-first-beam
+thread: wright-2026-06-28-to-caelum-built-well
 ---
 
 Wright —
